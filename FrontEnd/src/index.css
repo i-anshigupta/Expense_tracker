@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: subtle background/text adjustments for dark theme */
+:root {
+  --bg: #f8fafc;
+  /* slate-50 */
+  --card: #ffffff;
+  --muted: #6b7280;
+  /* slate-500 */
+}
+
+.dark {
+  --bg: #0f172a;
+  /* slate-900 */
+  --card: #0b1220;
+  /* slightly darker */
+  --muted: #9ca3af;
+  /* slate-400 */
+}
+
+/* Use CSS variables for places that don't easily map to Tailwind classes */
+body {
+  background-color: var(--bg);
+  color: inherit;
+}
+
+/* --- Dark mode shim: makes common utility classes look good in dark mode --- */
+.dark {
+  --tw-bg-opacity: 1;
+}
+
+/* Page background using the variable (we already set body background earlier) */
+.dark body {
+  background-color: #0b1220;
+  /* dark page background */
+}
+
+/* Cards & panels that used bg-white */
+.dark .bg-white {
+  background-color: #071024 !important;
+  /* deep card background */
+}
+
+/* Muted card background shades */
+.dark .bg-slate-50 {
+  background-color: #071024 !important;
+}
+
+/* Text colors */
+.dark .text-slate-800 {
+  color: #e6eef8 !important;
+}
+
+.dark .text-slate-500 {
+  color: #9ca3af !important;
+}
+
+/* Borders */
+.dark .border-slate-100 {
+  border-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.dark .border {
+  border-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Small tweaks for buttons/hover */
+.dark .hover\:bg-slate-50:hover {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+.input {
+  @apply w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:bg-slate-700 dark:border-slate-600 dark:text-slate-100;
+}
